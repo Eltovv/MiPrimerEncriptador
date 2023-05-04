@@ -14,11 +14,11 @@ function imprimir(texto, x){
 
 }
 
-function escrito(valor){
+// function escrito(valor){
    
-    document.getElementById("final").innerHTML=valor;
+//     document.getElementById("final").innerHTML=valor;
         
-}
+// }
 function encriptador(){
     let text = texto.value;
     let cod;
@@ -59,8 +59,52 @@ function encriptador(){
             n = n + 3;
         }
         
-    }
+        
 
-    document.getElementById("prueba").innerHTML=text;
+        
+    }
+    document.getElementById("final").innerHTML=text;
+    
+}
+function desencriptador(){
+    let text = texto.value;
+    let cod,cod1;
+
+    while (text.indexOf('enter') !== -1) {
+        cod = text.slice(0,text.indexOf('enter')+1);
+        cod1 = text.slice(text.indexOf('enter')+5);
+        text = cod + cod1;
+        cod=cod1=0;
+    }
+    while (text.indexOf('ai') !== -1) {
+        cod = text.slice(0,text.indexOf('ai')+1);
+        cod1 = text.slice(text.indexOf('ai')+2);
+        text = cod + cod1;
+        cod=cod1=0;
+    }
+    while (text.indexOf('imes') !== -1) {
+        cod = text.slice(0,text.indexOf('imes')+1);
+        cod1 = text.slice(text.indexOf('imes')+4);
+        text = cod + cod1;
+        cod=cod1=0;
+    }
+    while (text.indexOf('ober') !== -1) {
+        cod = text.slice(0,text.indexOf('ober')+1);
+        cod1 = text.slice(text.indexOf('ober')+4);
+        text = cod + cod1;
+        cod=cod1=0;
+    }
+    while (text.indexOf('ufat') !== -1) {
+        cod = text.slice(0,text.indexOf('ufat')+1);
+        cod1 = text.slice(text.indexOf('ufat')+4);
+        text = cod + cod1;
+        cod=cod1=0;
+    }
+    if (text == texto.value) {
+        alert("No se a encontrado ningun mensaje");   
+    }
+    else{
+    document.getElementById("final").innerHTML=text;
+    }
 }
 
