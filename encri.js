@@ -69,42 +69,85 @@ function encriptador(){
 function desencriptador(){
     let text = texto.value;
     let cod,cod1;
+    
+    if (text == "enterntenterr") {
+        text = "enter";
+        document.getElementById("final").innerHTML=text;
+        return;
+    }else if (text == "aiimes") {
+        text = "ai";
+        document.getElementById("final").innerHTML=text;
+        return;
+    }else if (text == "oberbenterr") {
+        text = "ober";
+        document.getElementById("final").innerHTML=text;
+        return;
+    }else if (text == "imesmenters") {
+        text = "imes";
+        document.getElementById("final").innerHTML=text;
+        return;
+    }else if (text == "ufatfait") {
+        text = "ufat";
+        document.getElementById("final").innerHTML=text;
+        return;
+    }else{
 
-    while (text.indexOf('enter') !== -1) {
-        cod = text.slice(0,text.indexOf('enter')+1);
-        cod1 = text.slice(text.indexOf('enter')+5);
-        text = cod + cod1;
-        cod=cod1=0;
-    }
-    while (text.indexOf('ai') !== -1) {
-        cod = text.slice(0,text.indexOf('ai')+1);
-        cod1 = text.slice(text.indexOf('ai')+2);
-        text = cod + cod1;
-        cod=cod1=0;
-    }
-    while (text.indexOf('imes') !== -1) {
-        cod = text.slice(0,text.indexOf('imes')+1);
-        cod1 = text.slice(text.indexOf('imes')+4);
-        text = cod + cod1;
-        cod=cod1=0;
-    }
-    while (text.indexOf('ober') !== -1) {
-        cod = text.slice(0,text.indexOf('ober')+1);
-        cod1 = text.slice(text.indexOf('ober')+4);
-        text = cod + cod1;
-        cod=cod1=0;
-    }
-    while (text.indexOf('ufat') !== -1) {
-        cod = text.slice(0,text.indexOf('ufat')+1);
-        cod1 = text.slice(text.indexOf('ufat')+4);
-        text = cod + cod1;
-        cod=cod1=0;
-    }
-    if (text == texto.value) {
-        alert("No se a encontrado ningun mensaje");   
-    }
-    else{
-    document.getElementById("final").innerHTML=text;
-    }
+   
+
+        while (text.indexOf('enter') !== -1) {
+            cod = text.slice(0,text.indexOf('enter')+1);
+            cod1 = text.slice(text.indexOf('enter')+5);
+            console.log(cod1);
+            text = cod + cod1;
+            console.log(text);
+            cod=cod1=0;
+        }
+        while (text.indexOf('ai') !== -1) {
+            cod = text.slice(0,text.indexOf('ai')+1);
+            cod1 = text.slice(text.indexOf('ai')+2);
+            text = cod + cod1;
+            cod=cod1=0;
+        }
+        while (text.indexOf('imes') !== -1) {
+            cod = text.slice(0,text.indexOf('imes')+1);
+            cod1 = text.slice(text.indexOf('imes')+4);
+            text = cod + cod1;
+            cod=cod1=0;
+        }
+        while (text.indexOf('ober') !== -1) {
+            cod = text.slice(0,text.indexOf('ober')+1);
+            cod1 = text.slice(text.indexOf('ober')+4);
+            text = cod + cod1;
+            cod=cod1=0;
+        }
+        while (text.indexOf('ufat') !== -1) {
+            cod = text.slice(0,text.indexOf('ufat')+1);
+            cod1 = text.slice(text.indexOf('ufat')+4);
+            text = cod + cod1;
+            cod=cod1=0;
+        }
+        if (text == texto.value) {
+            alert("No se a encontrado ningun mensaje");   
+        }
+        else{
+        document.getElementById("final").innerHTML=text;
+        }
+    }   
 }
+
+function copiarAlPortapapeles() {
+    // Selecciona el contenido del div
+    const elemento = document.getElementById("final");
+    const seleccion = window.getSelection();
+    const rango = document.createRange();
+    rango.selectNodeContents(elemento);
+    seleccion.removeAllRanges();
+    seleccion.addRange(rango);
+  
+    // Copia el contenido seleccionado al portapapeles
+    document.execCommand("copy");
+  
+    // Quita la selección
+    seleccion.removeAllRanges();
+  }
 
